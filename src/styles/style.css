@@ -1,0 +1,146 @@
+:root {
+  --primary: hsl(180, 20%, 80%);
+  --secondary: hsl(180, 20%, 90%);
+  --buttons: hsl(180, 20%, 70%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 1rem 0;
+  font-family: 'Lato', sans-serif;
+  background-color: hsl(180, 0%, 90%);
+}
+
+.wrapper {
+  background-color: var(--primary);
+  width: 40rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+
+.group1,
+.group2,
+.group3,
+.group4,
+.group5 {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+.group1 {
+  grid-area: group1;
+}
+
+.group2 {
+  grid-area: group2;
+}
+
+.group3 {
+  grid-area: group3;
+}
+
+.group4 {
+  grid-area: group4;
+}
+
+.group5 {
+  grid-area: group5;
+}
+
+.buttons-group {
+  grid-area: buttons;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0.2rem;
+  border: 0;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  width: 6rem;
+  background-color: var(--buttons);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+section,
+.general {
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.add-more-btn {
+  margin: 0.2rem auto;
+}
+
+input {
+  padding: 0.5rem;
+  font-family: 'Lato', sans-serif;
+}
+
+.general form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'group1 group1'
+    'group2 group3'
+    'buttons buttons';
+}
+
+.education form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'group1 group2'
+    'group3 group4'
+    'buttons buttons';
+}
+
+.experience form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'group1 group2'
+    'group3 group3'
+    'group4 group5 '
+    'buttons buttons';
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  margin: 0.6rem 0;
+}
+
+h3 {
+  font-size: 1rem;
+}
+.general p {
+  margin: 0.5rem;
+}
+
+.experience p,
+.education p {
+  margin: 0.4rem 0;
+}

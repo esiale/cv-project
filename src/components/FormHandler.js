@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import EducationForm from './EducationForm';
 import uniqid from 'uniqid';
 
-class Education extends Component {
-  constructor() {
-    super();
+class FormHandler extends Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
-      list: ['default'],
+      list: [uniqid()],
     };
   }
 
@@ -27,15 +26,18 @@ class Education extends Component {
 
   render() {
     const { list } = this.state;
+    const { Form } = this.props;
     return (
-      <div>
+      <section>
         {list.map((id) => (
-          <EducationForm key={id} id={id} onDelete={this.handleDelete} />
+          <Form key={id} id={id} onDelete={this.handleDelete} />
         ))}
-        <button onClick={this.handleAddMore}>Add More</button>
-      </div>
+        <button className="add-more-btn" onClick={this.handleAddMore}>
+          Add More
+        </button>
+      </section>
     );
   }
 }
 
-export default Education;
+export default FormHandler;

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import EducationOverview from './EducationOverview';
+import ExperienceOverview from './ExperienceOverview';
 
-class EducationForm extends Component {
+class ExperienceForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      school: '',
-      degree: '',
+      company: '',
+      position: '',
+      maintasks: '',
       startDate: '',
       endDate: '',
       mode: 'edit',
@@ -40,32 +41,43 @@ class EducationForm extends Component {
     const editCheck = mode === 'edit';
 
     return (
-      <div className="education">
+      <div className="experience">
         {editCheck ? (
           <form onSubmit={this.onSubmitTask}>
             <div className="group1">
-              <label htmlFor="school">School name</label>
+              <label htmlFor="school">Company name</label>
               <input
                 type="text"
-                name="school"
+                name="company"
                 onChange={this.handleChange}
-                value={this.state.school}
-                placeholder="Harvard University"
+                value={this.state.company}
+                placeholder="Google"
                 required
               />
             </div>
             <div className="group2">
-              <label htmlFor="text">Degree</label>
+              <label htmlFor="text">Position</label>
               <input
                 type="text"
-                name="degree"
+                name="position"
                 onChange={this.handleChange}
-                value={this.state.degree}
-                placeholder="Computer Science"
+                value={this.state.position}
+                placeholder="Junior full-stack developer"
                 required
               />
             </div>
             <div className="group3">
+              <label htmlFor="text">Main tasks</label>
+              <input
+                type="text"
+                name="maintasks"
+                onChange={this.handleChange}
+                value={this.state.maintasks}
+                placeholder="Games and stuff"
+                required
+              />
+            </div>
+            <div className="group4">
               <label htmlFor="startDate">Start date</label>
               <input
                 type="text"
@@ -75,7 +87,7 @@ class EducationForm extends Component {
                 placeholder="mm/YYYY"
               />
             </div>
-            <div className="group4">
+            <div className="group5">
               <label htmlFor="endDate">End date</label>
               <input
                 type="text"
@@ -92,7 +104,7 @@ class EducationForm extends Component {
           </form>
         ) : (
           <div>
-            <EducationOverview data={this.state} />
+            <ExperienceOverview data={this.state} />
             <button onClick={this.edit}>Edit</button>
             <button onClick={() => onDelete(id)}>Delete</button>
           </div>
@@ -102,4 +114,4 @@ class EducationForm extends Component {
   }
 }
 
-export default EducationForm;
+export default ExperienceForm;

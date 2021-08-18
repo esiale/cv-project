@@ -1,12 +1,13 @@
 const EducationOverview = (props) => {
-  const { school, degree, startDate, endDate } = props.data;
+  const { company, position, maintasks, startDate, endDate } = props.data;
   return (
     <div>
-      <h3>{school}</h3>
-      <p>{degree}</p>
+      <h3>{company}</h3>
+      <p>{position}</p>
       <p>
         {startDate} - {endDate}
       </p>
+      <p>{maintasks}</p>
     </div>
   );
 };
