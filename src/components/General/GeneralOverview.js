@@ -1,10 +1,9 @@
 const GeneralOverview = (props) => {
-  const { fullname, email, phone } = props.data;
-  console.log(props);
+  const { fullName, email, phone } = props.data;
   return (
     <div>
       <h3>Name:</h3>
-      <p>{fullname}</p>
+      <p>{fullName}</p>
       <h3>E-mail:</h3>
       <p>{email}</p>
       <h3>Phone:</h3>

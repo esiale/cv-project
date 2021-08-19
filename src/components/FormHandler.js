@@ -1,43 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import uniqid from 'uniqid';
 
-class FormHandler extends Component {
-  constructor(props) {
-    super(props);
+const FormHandler = (props) => {
+  const [list, setList] = useState([uniqid()]);
 
-    this.state = {
-      list: [uniqid()],
-    };
-  }
-
-  handleDelete = (itemId) => {
-    const updatedList = this.state.list.filter((item) => item !== itemId);
-    this.setState({
-      list: updatedList,
-    });
-    console.log(itemId, updatedList, this.state.list);
+  const handleDelete = (itemId) => {
+    const updatedList = list.filter((item) => item !== itemId);
+    setList(updatedList);
   };
 
-  handleAddMore = () => {
-    this.setState({
-      list: [...this.state.list, uniqid()],
-    });
+  const handleAddMore = () => {
+    setList([...list, uniqid()]);
   };
 
-  render() {
-    const { list } = this.state;
-    const { Form } = this.props;
-    return (
-      <section>
-        {list.map((id) => (
-          <Form key={id} id={id} onDelete={this.handleDelete} />
-        ))}
-        <button className="add-more-btn" onClick={this.handleAddMore}>
-          Add More
-        </button>
-      </section>
-    );
-  }
-}
+  const Form = props.Form;
+  return (
+    <section>
+      {list.map((id) => (
+        <Form key={id} id={id} onDelete={handleDelete} />
+      ))}
+      <button className="add-more-btn" onClick={handleAddMore}>
+        Add More
+      </button>
+    </section>
+  );
+};
 
 export default FormHandler;
